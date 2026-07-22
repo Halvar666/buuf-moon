@@ -1,0 +1,9 @@
+*.xpi
+*.zip
+*.tar
+*.tar.gz
+*.tar.xz
+.DS_Store
+Thumbs.db
+build/
+dist/
