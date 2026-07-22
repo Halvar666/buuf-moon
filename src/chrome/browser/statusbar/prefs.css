@@ -1,0 +1,183 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+#status4evar-prefs > prefpane > vbox.content-box {
+	min-height: 18em !important;
+}
+
+radio[pane="status4evar-pane-status"] {
+	list-style-image: url("chrome://global/skin/icons/information-32.png");
+}
+
+radio[pane="status4evar-pane-progress"] {
+	list-style-image: url("chrome://browser/skin/statusbar/throbberStatic.png");
+}
+
+radio[pane="status4evar-pane-download"] {
+	list-style-image: url("chrome://mozapps/skin/downloads/downloadIcon.png");
+}
+
+radio[pane="status4evar-pane-addonbar"] {
+	list-style-image: url("chrome://mozapps/skin/extensions/extensionGeneric.png");
+}
+
+radio[pane="status4evar-pane-advanced"] {
+	list-style-image: url("chrome://browser/skin/preferences/Options.png");
+	-moz-image-region: rect(0px, 224px, 32px, 192px);
+}
+
+
+
+/* Buuf Moon: Status4Evar preferences styled like main Preferences windows */
+prefwindow#status4evar-prefs,
+#status4evar-prefs,
+#status4evar-prefs > prefpane,
+#status4evar-prefs prefpane,
+#status4evar-prefs .paneDeckContainer,
+#status4evar-prefs tabbox,
+#status4evar-prefs tabpanels,
+#status4evar-prefs tabpanel,
+#status4evar-prefs groupbox,
+#status4evar-prefs groupbox > caption,
+#status4evar-prefs caption,
+#status4evar-prefs .content-box {
+  background-color: #d6d6c2 !important;
+  background-image: none !important;
+  color: #222 !important;
+}
+
+/* Softer element underlays inside the pref panes. */
+#status4evar-prefs tabpanel,
+#status4evar-prefs groupbox,
+#status4evar-prefs .groupbox-body {
+  background-color: rgba(255,255,255,.18) !important;
+  background-image: none !important;
+  border-color: rgba(0,0,0,.16) !important;
+}
+
+#status4evar-prefs textbox,
+#status4evar-prefs searchbar,
+#status4evar-prefs menulist,
+#status4evar-prefs .numberbox-input,
+#status4evar-prefs spinbuttons,
+#status4evar-prefs textbox[type="number"],
+#status4evar-prefs listbox,
+#status4evar-prefs richlistbox,
+#status4evar-prefs tree {
+  background-color: rgba(255,255,255,.42) !important;
+  color: #222 !important;
+}
+
+/* Top pane selector like main Preferences. */
+#status4evar-prefs radio[pane] {
+  background-color: #d6d6c2 !important;
+  background-image: none !important;
+  color: #222 !important;
+  border-radius: 4px;
+  padding: 5px 3px 1px;
+}
+
+#status4evar-prefs radio[pane]:hover {
+  background-color: #D2C7A6 !important;
+}
+
+#status4evar-prefs radio[pane][selected="true"] {
+  background-color: #697E35 !important;
+  color: #f7f7ee !important;
+}
+
+#status4evar-prefs radio[pane][selected="true"] .radio-label,
+#status4evar-prefs radio[pane][selected="true"] .radio-label-box,
+#status4evar-prefs radio[pane][selected="true"] .radio-icon {
+  color: #f7f7ee !important;
+  text-shadow: 0 1px 0 rgba(0,0,0,.35);
+}
+
+/* Make inner tabs match the Buuf khaki palette. */
+#status4evar-prefs tabs {
+  background-color: #d6d6c2 !important;
+}
+
+#status4evar-prefs tab {
+  background-color: #D2C7A6 !important;
+  color: #222 !important;
+}
+
+#status4evar-prefs tab[selected="true"] {
+  background-color: #697E35 !important;
+  color: #f7f7ee !important;
+}
+
+/* Keep checkbox/radio binding boxes clean over the unified background. */
+#status4evar-prefs checkbox,
+#status4evar-prefs checkbox .checkbox-spacer-box,
+#status4evar-prefs checkbox .checkbox-label-center-box,
+#status4evar-prefs checkbox .checkbox-label-box,
+#status4evar-prefs checkbox .checkbox-icon,
+#status4evar-prefs radio,
+#status4evar-prefs radio .radio-spacer-box,
+#status4evar-prefs radio .radio-label-center-box,
+#status4evar-prefs radio .radio-label-box,
+#status4evar-prefs radio .radio-icon {
+  background-image: none !important;
+}
+
+#status4evar-prefs checkbox,
+#status4evar-prefs radio:not([pane]) {
+  background-color: transparent !important;
+}
+
+#status4evar-prefs checkbox .checkbox-spacer-box,
+#status4evar-prefs radio:not([pane]) .radio-spacer-box {
+  background-color: transparent !important;
+  border: 0 !important;
+}
+
+/* Buuf Moon: custom green checkboxes for Status4Evar preferences.
+   This window still picked up native blue checkbox painting on some platforms,
+   so force themed rendering here for both Linux and Windows checkbox bindings. */
+#status4evar-prefs checkbox > .checkbox-spacer-box,
+#status4evar-prefs checkbox > .checkbox-check {
+  -moz-appearance: none !important;
+  border: 0 !important;
+  background: transparent !important;
+}
+
+#status4evar-prefs checkbox > .checkbox-spacer-box > .checkbox-check,
+#status4evar-prefs checkbox > .checkbox-check {
+  -moz-appearance: none !important;
+  min-width: 13px !important;
+  min-height: 13px !important;
+  background-color: #eef3e4 !important;
+  background-repeat: no-repeat !important;
+  background-position: 50% 50% !important;
+  border-top: 1px solid #4f6028 !important;
+  border-right: 1px solid #8aa055 !important;
+  border-bottom: 1px solid #8aa055 !important;
+  border-left: 1px solid #4f6028 !important;
+}
+
+#status4evar-prefs checkbox:hover:active > .checkbox-spacer-box > .checkbox-check,
+#status4evar-prefs checkbox:hover:active > .checkbox-check {
+  background-color: #d8dfc9 !important;
+}
+
+#status4evar-prefs checkbox[checked="true"] > .checkbox-spacer-box > .checkbox-check,
+#status4evar-prefs checkbox[checked="true"] > .checkbox-check {
+  background-color: #697E35 !important;
+  background-image: url("chrome://global/skin/checkbox/cbox-check.gif") !important;
+}
+
+#status4evar-prefs checkbox[checked="true"][disabled="true"] > .checkbox-spacer-box > .checkbox-check,
+#status4evar-prefs checkbox[checked="true"][disabled="true"] > .checkbox-check {
+  background-color: #9eab7b !important;
+  background-image: url("chrome://global/skin/checkbox/cbox-check-dis.gif") !important;
+}
+
+#status4evar-prefs checkbox[disabled="true"] > .checkbox-spacer-box > .checkbox-check,
+#status4evar-prefs checkbox[disabled="true"] > .checkbox-check {
+  background-color: #dddccf !important;
+}

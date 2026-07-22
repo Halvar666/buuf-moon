@@ -1,0 +1,10 @@
+skin	browser		buufmoon	chrome/browser/
+skin	communicator	buufmoon	chrome/communicator/
+skin	global		buufmoon	chrome/global/
+skin	mozapps		buufmoon	chrome/mozapps/
+
+skin	os			buufmoon	chrome/os/linux/
+skin	os			buufmoon	chrome/os/winnt/		os=WINNT
+skin	os			buufmoon	chrome/os/darwin/		os=Darwin
+
+override chrome://browser/skin/autocomplete.css chrome://global/skin/autocomplete.css

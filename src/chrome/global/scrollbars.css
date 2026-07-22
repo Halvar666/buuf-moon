@@ -1,0 +1,53 @@
+@import url("chrome://os/skin/global/scrollbars.css");
+/* Buuf Moon: global scrollbar geometry override, 50% narrower than a44/base 20px. */
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+@namespace html url("http://www.w3.org/1999/xhtml");
+
+scrollbar[orient="vertical"],
+html|div scrollbar[orient="vertical"] {
+  width: 10px !important;
+  min-width: 10px !important;
+  max-width: 10px !important;
+}
+
+scrollbar:not([orient="vertical"]),
+html|div scrollbar:not([orient="vertical"]) {
+  height: 10px !important;
+  min-height: 10px !important;
+  max-height: 10px !important;
+}
+
+scrollbarbutton,
+html|div scrollbarbutton {
+  min-width: 10px !important;
+  max-width: 10px !important;
+  min-height: 10px !important;
+  max-height: 10px !important;
+  padding: 0 !important;
+}
+
+slider,
+slider[orient="vertical"],
+html|div slider,
+html|div slider[orient="vertical"] {
+  min-width: 8px !important;
+  min-height: 8px !important;
+}
+
+thumb,
+thumb[orient="horizontal"],
+html|div thumb,
+html|div thumb[orient="horizontal"] {
+  min-width: 8px !important;
+  min-height: 8px !important;
+}
+
+scrollcorner,
+html|div scrollcorner {
+  width: 10px !important;
+  min-width: 10px !important;
+  max-width: 10px !important;
+  height: 10px !important;
+  min-height: 10px !important;
+  max-height: 10px !important;
+}

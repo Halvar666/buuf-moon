@@ -1,0 +1,98 @@
+@import url("chrome://os/skin/global/radio.css");
+
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+/* Buuf Moon: global non-native green radio buttons.
+   Disable native/GTK/Windows radio drawing so the selected mark no longer
+   falls back to the platform blue accent color. */
+
+.radio-spacer-box {
+  -moz-appearance: none !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  border-right: 2px solid transparent !important;
+  -moz-box-align: center !important;
+}
+
+.radio-check-box1 {
+  -moz-appearance: none !important;
+  width: 12px !important;
+  height: 12px !important;
+  min-width: 12px !important;
+  min-height: 12px !important;
+  max-width: 12px !important;
+  max-height: 12px !important;
+  margin: 1px 0 !important;
+  padding: 0 !important;
+  border-radius: 50% !important;
+  border-top: 1px solid #596238 !important;
+  border-right: 1px solid #a6ad82 !important;
+  border-bottom: 1px solid #a6ad82 !important;
+  border-left: 1px solid #596238 !important;
+  background-color: #f7f7ee !important;
+  background-image: none !important;
+  -moz-box-align: center !important;
+  -moz-box-pack: center !important;
+}
+
+.radio-check-box2 {
+  list-style-image: none !important;
+  width: 6px !important;
+  height: 6px !important;
+  min-width: 6px !important;
+  min-height: 6px !important;
+  max-width: 6px !important;
+  max-height: 6px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 50% !important;
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+radio:not([disabled="true"]):hover > .radio-check-box1,
+radio:not([disabled="true"]):hover > .radio-spacer-box > .radio-check-box1 {
+  background-color: #fbfbf3 !important;
+  border-top-color: #4f6028 !important;
+  border-left-color: #4f6028 !important;
+  border-right-color: #9aae64 !important;
+  border-bottom-color: #9aae64 !important;
+}
+
+radio:not([disabled="true"]):hover:active > .radio-check-box1,
+radio:not([disabled="true"]):hover:active > .radio-spacer-box > .radio-check-box1 {
+  background-color: #eef3e4 !important;
+}
+
+radio[selected="true"] > .radio-check-box1,
+radio[selected="true"] > .radio-spacer-box > .radio-check-box1 {
+  background-color: #eef3e4 !important;
+  border-top-color: #4f6028 !important;
+  border-right-color: #8aa055 !important;
+  border-bottom-color: #8aa055 !important;
+  border-left-color: #4f6028 !important;
+}
+
+radio[selected="true"] > .radio-check-box1 > .radio-check-box2,
+radio[selected="true"] > .radio-spacer-box > .radio-check-box1 > .radio-check-box2 {
+  list-style-image: none !important;
+  background-color: #697E35 !important;
+  background-image: none !important;
+}
+
+radio[disabled="true"] > .radio-check-box1,
+radio[disabled="true"] > .radio-spacer-box > .radio-check-box1 {
+  background-color: #d7dacb !important;
+  border-top-color: #8b9270 !important;
+  border-right-color: #b1b998 !important;
+  border-bottom-color: #b1b998 !important;
+  border-left-color: #8b9270 !important;
+}
+
+radio[selected="true"][disabled="true"] > .radio-check-box1 > .radio-check-box2,
+radio[selected="true"][disabled="true"] > .radio-spacer-box > .radio-check-box1 > .radio-check-box2 {
+  list-style-image: none !important;
+  background-color: #89946b !important;
+  background-image: none !important;
+}

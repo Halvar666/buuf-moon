@@ -1,0 +1,139 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+@namespace html url("http://www.w3.org/1999/xhtml");
+
+scrollbar {
+  -moz-appearance: scrollbar;
+  -moz-binding: url(chrome://global/content/bindings/scrollbar.xml#scrollbar);
+  cursor: default;
+  background-color: white;
+}
+
+scrollbar[root="true"] {
+  position: relative;
+  z-index: 2147483647; /* largest positive value of a signed 32-bit integer */
+}
+
+html|select[size]:not([size="0"]):not([size="1"]) > scrollbar,
+html|select[multiple] > scrollbar {
+  -moz-appearance: scrollbar-small;
+}
+
+@media all and (-moz-overlay-scrollbars) {
+  scrollbar:not([active="true"]),
+  scrollbar[disabled="true"] {
+    visibility: hidden;
+  }
+}
+
+/* ..... track ..... */
+
+slider {
+  -moz-appearance: scrollbartrack-horizontal;
+}
+
+slider[orient="vertical"] {
+  -moz-appearance: scrollbartrack-vertical;
+}
+
+/* ..... thumb ..... */
+
+thumb {
+  -moz-appearance: scrollbarthumb-horizontal;
+}
+
+thumb[orient="vertical"] {
+  -moz-appearance: scrollbarthumb-vertical;
+}
+
+/* ..... increment ..... */
+
+scrollbarbutton[type="increment"] {
+  -moz-appearance: scrollbarbutton-right;
+}
+
+scrollbar[orient="vertical"] > scrollbarbutton[type="increment"] {
+  -moz-appearance: scrollbarbutton-down;
+}
+
+/* ..... decrement ..... */
+
+scrollbarbutton[type="decrement"] {
+  -moz-appearance: scrollbarbutton-left;
+}
+
+scrollbar[orient="vertical"] > scrollbarbutton[type="decrement"] {
+  -moz-appearance: scrollbarbutton-up;
+}
+
+/* ::::: square at the corner of two scrollbars ::::: */
+
+scrollcorner {
+  /* XXX -moz-appearance: scrollcorner; */
+  -moz-binding: url(chrome://global/content/bindings/scrollbar.xml#scrollbar-base);
+  width: 16px;
+  cursor: default;
+  background-color: white;
+}
+
+/* ::::::::::::::::::::: MEDIA PRINT :::::::::::::::::::::: */
+@media print {
+  html|div scrollbar {
+    -moz-appearance: scrollbar;
+    -moz-binding: url(chrome://global/content/bindings/scrollbar.xml#scrollbar);
+    cursor: default;
+  }
+}
+
+/* Buuf Moon: scrollbar geometry override, 50% narrower than a44/base 20px. */
+scrollbar[orient="vertical"],
+html|div scrollbar[orient="vertical"] {
+  width: 10px !important;
+  min-width: 10px !important;
+  max-width: 10px !important;
+}
+
+scrollbar:not([orient="vertical"]),
+html|div scrollbar:not([orient="vertical"]) {
+  height: 10px !important;
+  min-height: 10px !important;
+  max-height: 10px !important;
+}
+
+scrollbarbutton,
+html|div scrollbarbutton {
+  min-width: 10px !important;
+  max-width: 10px !important;
+  min-height: 10px !important;
+  max-height: 10px !important;
+  padding: 0 !important;
+}
+
+slider,
+slider[orient="vertical"],
+html|div slider,
+html|div slider[orient="vertical"] {
+  min-width: 8px !important;
+  min-height: 8px !important;
+}
+
+thumb,
+thumb[orient="horizontal"],
+html|div thumb,
+html|div thumb[orient="horizontal"] {
+  min-width: 8px !important;
+  min-height: 8px !important;
+}
+
+scrollcorner,
+html|div scrollcorner {
+  width: 10px !important;
+  min-width: 10px !important;
+  max-width: 10px !important;
+  height: 10px !important;
+  min-height: 10px !important;
+  max-height: 10px !important;
+}

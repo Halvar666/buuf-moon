@@ -1,0 +1,414 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+/* ===== xulscrollbars.css ==============================================
+  == Styles used by XUL scrollbar-related elements.
+  ======================================================================= */
+
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+@namespace html url("http://www.w3.org/1999/xhtml"); /* namespace for HTML elements */
+
+/* ::::: scrollbar ::::: */
+
+scrollbar {
+  -moz-appearance: scrollbar-horizontal;
+  -moz-binding: url("chrome://global/content/bindings/scrollbar.xml#scrollbar");
+  cursor: default;
+  background: url("chrome://global/skin/scrollbar/slider.gif") scrollbar;
+}
+
+@media all and (-moz-overlay-scrollbars) {
+  scrollbar[root="true"] {
+    position: relative;
+    z-index: 2147483647; /* largest positive value of a signed 32-bit integer */
+  }
+
+  scrollbar:not([active="true"]),
+  scrollbar[disabled="true"] {
+    visibility: hidden;
+  }
+}
+
+scrollbar[orient="vertical"] 
+{
+   -moz-appearance: scrollbar-vertical;
+}
+
+/* ::::: borders for thumb and buttons ::::: */
+
+thumb,
+scrollbarbutton {
+  border: 2px solid;
+  -moz-border-top-colors: ThreeDLightShadow ThreeDHighlight;
+  -moz-border-right-colors: ThreeDDarkShadow ThreeDShadow;
+  -moz-border-bottom-colors: ThreeDDarkShadow ThreeDShadow;
+  -moz-border-left-colors: ThreeDLightShadow ThreeDHighlight;
+  background-color: -moz-Dialog;
+}
+
+/* ::::: slider - a thumb is inside  ::::: */
+slider {
+  -moz-appearance: scrollbartrack-horizontal;
+}
+
+slider[orient="vertical"] {
+  -moz-appearance: scrollbartrack-vertical;
+}
+
+/* ::::: thumb (horizontal) ::::: */
+
+thumb {
+  -moz-appearance: scrollbarthumb-vertical;
+  min-height: 8px;
+}
+
+thumb[orient="horizontal"] {
+  -moz-appearance: scrollbarthumb-horizontal;
+  min-width: 8px;
+}
+
+/* ::::: scrollbar button ::::: */
+
+scrollbarbutton {
+  background: -moz-Dialog no-repeat 50% 50%;
+  min-width: 16px;
+  min-height: 16px;
+}
+
+scrollbarbutton:hover:active, scrollbarbutton[active="true"] {
+  -moz-border-top-colors: ThreeDShadow -moz-Dialog;
+  -moz-border-right-colors: ThreeDShadow -moz-Dialog;
+  -moz-border-bottom-colors: ThreeDShadow -moz-Dialog;
+  -moz-border-left-colors: ThreeDShadow -moz-Dialog;
+  background-position: 60% 60%;
+}
+
+/* ::::: square at the corner of two scrollbars ::::: */
+
+scrollcorner { 
+  /* XXX -moz-appearance: scrollcorner; */
+  -moz-binding: url(chrome://global/content/bindings/scrollbar.xml#scrollbar-base);
+  width: 16px;
+  cursor: default;
+  background-color: -moz-Dialog;
+}
+
+/* ..... increment .... */
+
+scrollbarbutton[type="increment"] {
+  -moz-appearance: scrollbarbutton-right;
+  background-image: url("chrome://global/skin/arrow/arrow-rit.gif")
+}
+
+scrollbarbutton[type="increment"][disabled="true"] {
+  background-image: url("chrome://global/skin/arrow/arrow-rit-dis.gif")
+}
+
+scrollbar[orient="vertical"] > scrollbarbutton[type="increment"] {
+  -moz-appearance: scrollbarbutton-down;
+  background-image: url("chrome://global/skin/arrow/arrow-dn.gif")
+}
+
+scrollbar[orient="vertical"] > scrollbarbutton[type="increment"][disabled="true"] {
+  background-image: url("chrome://global/skin/arrow/arrow-dn-dis.gif")
+}
+
+/* ..... decrement .... */
+
+scrollbarbutton[type="decrement"] {
+  -moz-appearance: scrollbarbutton-left;
+   background-image: url("chrome://global/skin/arrow/arrow-lft.gif")
+}
+
+scrollbarbutton[type="decrement"][disabled="true"] {
+   background-image: url("chrome://global/skin/arrow/arrow-lft-dis.gif")
+}
+
+scrollbar[orient="vertical"] > scrollbarbutton[type="decrement"] {
+  -moz-appearance: scrollbarbutton-up;
+   background-image: url("chrome://global/skin/arrow/arrow-up.gif")
+}
+
+scrollbar[orient="vertical"] > scrollbarbutton[type="decrement"][disabled="true"] {
+   background-image: url("chrome://global/skin/arrow/arrow-up-dis.gif")
+}
+
+/* :::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+/* ::::::::::::::::::::: MEDIA PRINT :::::::::::::::::::::: */
+/* :::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+@media print {
+  /* ::::: scrollbar ::::: */
+
+  html|div scrollbar {
+    -moz-appearance: scrollbar-horizontal;
+    -moz-binding: url("chrome://global/content/bindings/scrollbar.xml#scrollbar");
+    cursor: default;
+    background: url("chrome://global/skin/scrollbar/slider.gif") scrollbar;
+  }
+
+  html|div scrollbar[orient="vertical"] 
+  {
+     -moz-appearance: scrollbar-vertical;
+  }
+
+  /* ::::: borders for thumb and buttons ::::: */
+
+  html|div thumb,
+  html|div scrollbarbutton {
+    border: 2px solid;
+    -moz-border-top-colors: ThreeDLightShadow ThreeDHighlight;
+    -moz-border-right-colors: ThreeDDarkShadow ThreeDShadow;
+    -moz-border-bottom-colors: ThreeDDarkShadow ThreeDShadow;
+    -moz-border-left-colors: ThreeDLightShadow ThreeDHighlight;
+    background-color: -moz-Dialog;
+  }
+
+  /* ::::: thumb (horizontal) ::::: */
+
+  html|div thumb {
+    -moz-appearance: scrollbarthumb-vertical;
+    min-height: 8px;
+  }
+
+  html|div thumb[orient="horizontal"] {
+    -moz-appearance: scrollbarthumb-horizontal;
+    min-width: 8px;
+  }
+
+  /* ::::: scrollbar button ::::: */
+
+  html|div scrollbarbutton {
+    background: -moz-Dialog no-repeat 50% 50%;
+    min-width: 16px;
+    min-height: 16px;
+  }
+
+  html|div scrollbarbutton:hover:active, html|div scrollbarbutton[active="true"] {
+    -moz-border-top-colors: ThreeDShadow -moz-Dialog;
+    -moz-border-right-colors: ThreeDShadow -moz-Dialog;
+    -moz-border-bottom-colors: ThreeDShadow -moz-Dialog;
+    -moz-border-left-colors: ThreeDShadow -moz-Dialog;
+    background-position: 60% 60%;
+  }
+
+  /* ..... increment .... */
+
+  html|div scrollbarbutton[type="increment"] {
+    -moz-appearance: scrollbarbutton-right;
+    background-image: url("chrome://global/skin/arrow/arrow-rit.gif")
+  }
+
+  html|div scrollbarbutton[type="increment"][disabled="true"] {
+    background-image: url("chrome://global/skin/arrow/arrow-rit-dis.gif")
+  }
+
+  html|div scrollbar[orient="vertical"] > scrollbarbutton[type="increment"] {
+    -moz-appearance: scrollbarbutton-down;
+    background-image: url("chrome://global/skin/arrow/arrow-dn.gif")
+  }
+
+  html|div scrollbar[orient="vertical"] > scrollbarbutton[type="increment"][disabled="true"] {
+    background-image: url("chrome://global/skin/arrow/arrow-dn-dis.gif")
+  }
+
+  /* ..... decrement .... */
+
+  html|div scrollbarbutton[type="decrement"] {
+    -moz-appearance: scrollbarbutton-left;
+     background-image: url("chrome://global/skin/arrow/arrow-lft.gif")
+  }
+
+  html|div scrollbarbutton[type="decrement"][disabled="true"] {
+     background-image: url("chrome://global/skin/arrow/arrow-lft-dis.gif")
+  }
+
+  html|div scrollbar[orient="vertical"] > scrollbarbutton[type="decrement"] {
+    -moz-appearance: scrollbarbutton-up;
+     background-image: url("chrome://global/skin/arrow/arrow-up.gif")
+  }
+
+  html|div scrollbar[orient="vertical"] > scrollbarbutton[type="decrement"][disabled="true"] {
+     background-image: url("chrome://global/skin/arrow/arrow-up-dis.gif")
+  }
+
+}
+
+/* Buuf Moon global scrollbar palette */
+scrollbar {
+  background: none !important;
+  background-color: #BEA268 !important;
+}
+
+slider,
+slider[orient="vertical"] {
+  -moz-appearance: none !important;
+  background: none !important;
+  background-color: #BEA268 !important;
+  border: 1px solid #8f7340 !important;
+}
+
+thumb,
+thumb[orient="horizontal"] {
+  -moz-appearance: none !important;
+  background: none !important;
+  background-color: #697E35 !important;
+  border: 1px solid #4f6028 !important;
+  min-width: 12px !important;
+  min-height: 12px !important;
+}
+
+thumb:hover {
+  background-color: #748b3c !important;
+}
+
+thumb:hover:active,
+thumb[active="true"] {
+  background-color: #5d712f !important;
+}
+
+scrollbarbutton {
+  -moz-appearance: none !important;
+  background-color: #BEA268 !important;
+  border: 1px solid #8f7340 !important;
+}
+
+scrollbarbutton:hover {
+  background-color: #c6ab74 !important;
+}
+
+scrollbarbutton:hover:active,
+scrollbarbutton[active="true"] {
+  background-color: #b2935a !important;
+  background-position: 50% 50% !important;
+}
+
+scrollbarbutton[disabled="true"],
+thumb[disabled="true"],
+slider[disabled="true"] {
+  opacity: .55 !important;
+}
+
+scrollcorner {
+  background-color: #BEA268 !important;
+}
+
+@media print {
+  html|div slider,
+  html|div slider[orient="vertical"] {
+    -moz-appearance: none !important;
+    background: none !important;
+    background-color: #BEA268 !important;
+    border: 1px solid #8f7340 !important;
+  }
+
+  html|div thumb,
+  html|div thumb[orient="horizontal"] {
+    -moz-appearance: none !important;
+    background: none !important;
+    background-color: #697E35 !important;
+    border: 1px solid #4f6028 !important;
+  }
+
+  html|div scrollbarbutton {
+    -moz-appearance: none !important;
+    background-color: #BEA268 !important;
+    border: 1px solid #8f7340 !important;
+  }
+}
+
+/* Buuf Moon: scrollbar geometry override, 50% narrower than a44/base 20px. */
+scrollbar[orient="vertical"],
+html|div scrollbar[orient="vertical"] {
+  width: 10px !important;
+  min-width: 10px !important;
+  max-width: 10px !important;
+}
+
+scrollbar:not([orient="vertical"]),
+html|div scrollbar:not([orient="vertical"]) {
+  height: 10px !important;
+  min-height: 10px !important;
+  max-height: 10px !important;
+}
+
+scrollbarbutton,
+html|div scrollbarbutton {
+  min-width: 10px !important;
+  max-width: 10px !important;
+  min-height: 10px !important;
+  max-height: 10px !important;
+  padding: 0 !important;
+}
+
+slider,
+slider[orient="vertical"],
+html|div slider,
+html|div slider[orient="vertical"] {
+  min-width: 8px !important;
+  min-height: 8px !important;
+}
+
+thumb,
+thumb[orient="horizontal"],
+html|div thumb,
+html|div thumb[orient="horizontal"] {
+  min-width: 8px !important;
+  min-height: 8px !important;
+}
+
+scrollcorner,
+html|div scrollcorner {
+  width: 10px !important;
+  min-width: 10px !important;
+  max-width: 10px !important;
+  height: 10px !important;
+  min-height: 10px !important;
+  max-height: 10px !important;
+}
+
+/* Buuf Moon: remove native outer gutter/frame and fit content exactly to the 10px scrollbar box. */
+scrollbar,
+scrollbar[orient="vertical"],
+html|div scrollbar,
+html|div scrollbar[orient="vertical"] {
+  -moz-appearance: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+}
+
+slider,
+slider[orient="vertical"],
+html|div slider,
+html|div slider[orient="vertical"] {
+  width: 8px !important;
+  min-width: 8px !important;
+  max-width: 8px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+thumb,
+html|div thumb {
+  width: 8px !important;
+  min-width: 8px !important;
+  max-width: 8px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+scrollbarbutton,
+html|div scrollbarbutton {
+  width: 8px !important;
+  min-width: 8px !important;
+  max-width: 8px !important;
+  margin: 0 !important;
+}
+
+scrollcorner,
+html|div scrollcorner {
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+}
